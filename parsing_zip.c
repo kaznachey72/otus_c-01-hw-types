@@ -31,7 +31,7 @@ void show_files(FILE *f)
             continue;
         }
 
-        fseek(f, ftell(f)-4, SEEK_SET);
+        fseek(f, ftell(f)-sizeof(BEG_ZIP_SIGN), SEEK_SET);
 
         arch_t arch;
         if (fread(&arch, sizeof(arch_t), 1, f)) {
